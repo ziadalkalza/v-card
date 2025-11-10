@@ -4,10 +4,9 @@ N:Alkalza;Ziad;;;
 FN:Ziad Alkalza
 ORG:Aradina
 TITLE:Founder
-EMAIL;TYPE=INTERNET,PREF:you@example.com
-TEL;TYPE=CELL,VOICE:+201234567890
-URL;TYPE=WORK:https://aradina.solutions
-URL;TYPE=LINKEDIN:https://www.linkedin.com/in/YOUR_HANDLE
+EMAIL;TYPE=WORK:ziad@aradina.solutions
+TEL;TYPE=CELL,VOICE:+201095556608
+URL;TYPE=WORK:https://www.aradina.solutions/
+URL;TYPE=LINKEDIN:https://www.linkedin.com/in/ziad-alkalza-a000a0166/
 ADR;TYPE=WORK:;;New Cairo;;Cairo;;Egypt
-NOTE:IoT • Smart agriculture
 END:VCARD

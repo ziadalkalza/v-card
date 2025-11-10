@@ -1,41 +1,281 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ziad Alkalza — Contact</title>
-  <meta name="description" content="Contact page: links and vCard download." />
-  <style>
-    :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; }
-    body { margin: 0; background:#0b1b13; color:#e6f1ee; display:grid; place-items:center; min-height:100dvh; }
-    .card { max-width:560px; width:92%; background:#12251b; padding:28px; border-radius:20px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
-    h1 { margin:0 0 6px; font-size:1.8rem; }
-    p.lead { margin:.25rem 0 1rem; opacity:.8 }
-    .links { display:grid; gap:10px; margin:18px 0 26px; }
-    .btn { display:inline-block; text-decoration:none; padding:12px 14px; border-radius:12px; background:#1f3a2c; color:#e6f1ee; border:1px solid #2d4d3b }
-    .btn:hover { filter:brightness(1.12) }
-    .row { display:flex; gap:10px; flex-wrap:wrap; }
-    footer { opacity:.65; font-size:.9rem; margin-top:14px }
-  </style>
-</head>
-<body>
-  <main class="card">
-    <h1>Ziad Alkalza</h1>
-    <p class="lead">Founder @ Aradina — Smart Agriculture & IoT</p>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ziad Alkalza - Digital Contact</title>
+    <style>
+      :root{
+        --bg:#041022;
+        --bg-soft:#081a36;
+        --card:#0f2546;
+        --card-light:#163259;
+        --muted:#9cb4d6;
+        --text:#e8f1ff;
+        --accent:#5fb3ff;
+        --accent-strong:#2e8bff;
+        --radius:18px;
+        --tap:56px;
+        --maxw:960px;
+        font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        color-scheme: dark;
+      }
 
-    <div class="links">
-      <a class="btn" href="https://www.linkedin.com/in/YOUR_HANDLE" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn" href="https://aradina.solutions" target="_blank" rel="noopener">Company Website</a>
-      <a class="btn" href="mailto:you@example.com">Email</a>
-      <a class="btn" href="tel:+201234567890">Call</a>
+      *{box-sizing:border-box}
+      html,body{height:100%}
+
+      body{
+        margin:0;
+        background:radial-gradient(circle at top,#0f1f3e,#030916 70%);
+        color:var(--text);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding:24px;
+      }
+
+      .shell{
+        width:100%;
+        max-width:var(--maxw);
+      }
+
+      .card{
+        display:grid;
+        gap:32px;
+        background:linear-gradient(135deg,var(--card),var(--card-light));
+        border-radius:var(--radius);
+        padding:32px clamp(24px,5vw,48px);
+        box-shadow:0 20px 60px rgba(4,14,31,0.7);
+        border:1px solid rgba(255,255,255,0.08);
+      }
+
+      .profile{
+        display:flex;
+        gap:24px;
+        align-items:center;
+      }
+
+      .avatar{
+        width:112px;
+        height:112px;
+        border-radius:50%;
+        background:linear-gradient(145deg,#63bfff,#1e6cd7);
+        display:grid;
+        place-items:center;
+        font-size:40px;
+        font-weight:700;
+        color:#02122d;
+        box-shadow:0 12px 32px rgba(19,85,180,0.45);
+        flex:0 0 112px; /* prevent squish on narrower layouts */
+      }
+
+      h1{
+        margin:0;
+        font-size:2rem;
+        letter-spacing:0.4px;
+      }
+
+      .title{
+        margin:10px 0 0;
+        color:var(--muted);
+        font-size:1rem;
+      }
+
+      .bio{
+        margin:12px 0 0;
+        color:#cdd9ef;
+        line-height:1.5;
+      }
+
+      .link-row{
+        display:flex;
+        flex-wrap:wrap;
+        gap:8px;
+        margin-top:20px;
+      }
+
+      .chip{
+        padding:8px 14px;
+        border-radius:999px;
+        border:1px solid rgba(255,255,255,0.08);
+        color:var(--text);
+        text-decoration:none;
+        font-size:0.92rem;
+        background:rgba(255,255,255,0.04);
+        transition:transform .12s ease, border-color .12s ease;
+      }
+
+      .chip:hover{
+        transform:translateY(-2px);
+        border-color:var(--accent);
+      }
+
+      .actions{
+        display:flex;
+        flex-direction:column;
+        gap:14px;
+      }
+
+      .btn{
+        appearance:none;
+        border:0;
+        border-radius:14px;
+        padding:16px 20px;
+        font-size:1rem;
+        font-weight:600;
+        text-decoration:none;
+        color:var(--text);
+        background:rgba(255,255,255,0.05);
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        min-height:var(--tap);
+        transition:transform .15s ease, background .15s ease, box-shadow .15s ease;
+      }
+
+      .btn .btn-label{
+        font-size:1rem;
+        font-weight:600;
+        opacity:1;
+      }
+
+      .btn .btn-sublabel{
+        opacity:0.8;
+        font-size:.9rem;
+      }
+
+      .btn:hover{
+        transform:translateY(-3px);
+        background:rgba(255,255,255,0.08);
+        box-shadow:0 8px 24px rgba(7,18,40,0.45);
+      }
+
+      .btn.primary{
+        background:linear-gradient(120deg,var(--accent),var(--accent-strong));
+        color:#041022;
+        box-shadow:0 12px 30px rgba(61,132,255,0.45);
+      }
+
+      .btn.primary .btn-sublabel{
+        color:#041022;
+        opacity:0.8;
+      }
+
+      .footer{
+        margin-top:12px;
+        font-size:0.9rem;
+        color:var(--muted);
+        text-align:center;
+      }
+
+      @media(min-width:720px){
+        .card{
+          grid-template-columns:1.1fr 0.9fr;
+          align-items:center;
+        }
+        .actions{gap:16px}
+      }
+
+      @media(max-width:599px){
+        .profile{
+          flex-direction:column;
+          text-align:center;
+        }
+        .link-row{
+          justify-content:center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <main class="card" aria-label="Digital business card">
+        <section class="profile">
+          <div class="avatar" aria-hidden="true" data-field="avatar">ZA</div>
+          <div>
+            <h1 data-field="name">Ziad Alkalza</h1>
+            <p class="title" data-field="title">Founder - Aradina | Smart Agriculture & IoT</p>
+            <p class="bio" data-field="bio">Building resilient farm automation systems that fuse sensor networks, AI, and on-ground expertise to unlock sustainable food production.</p>
+            <div class="link-row" aria-label="Social links">
+              <a class="chip" data-field="linkedin" href="https://www.linkedin.com/in/YOUR_HANDLE" target="_blank" rel="noopener">LinkedIn</a>
+              <a class="chip" data-field="company" href="https://aradina.solutions" target="_blank" rel="noopener">Company</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="actions" aria-label="Contact options">
+          <a class="btn primary" data-field="add-to-contacts" href="./contact.vcf" download>
+            <span class="btn-label">Add to Contacts</span>
+            <span class="btn-sublabel">contact.vcf</span>
+          </a>
+          <a class="btn" data-field="view-card" href="./contact.vcf">
+            <span class="btn-label">View vCard</span>
+            <span class="btn-sublabel">Preview contact</span>
+          </a>
+          <a class="btn" data-field="email" href="mailto:you@example.com">
+            <span class="btn-label">Send Email</span>
+            <span class="btn-sublabel">you@example.com</span>
+          </a>
+          <a class="btn" data-field="phone" href="tel:+201234567890">
+            <span class="btn-label">Call</span>
+            <span class="btn-sublabel">+20 123 456 7890</span>
+          </a>
+        </section>
+      </main>
+      <p class="footer">Share this page or the bundled <strong>contact.vcf</strong> to keep your details within reach.</p>
     </div>
+    <script src="data.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const data = window.contactData;
+        if (!data) return;
 
-    <div class="row">
-      <a class="btn" href="./contact.vcf" download>➕ Add to Contacts</a>
-      <a class="btn" href="./contact.vcf">View vCard</a>
-    </div>
+        const setText = (selector, value) => {
+          if (!value) return;
+          const el = document.querySelector(selector);
+          if (el) el.textContent = value;
+        };
 
-    <footer>Save this page or the QR to share quickly.</footer>
-  </main>
-</body>
+        const setAttr = (selector, attr, value) => {
+          if (!value) return;
+          const el = document.querySelector(selector);
+          if (el) el.setAttribute(attr, value);
+        };
+
+        setText('[data-field="name"]', data.name);
+        setText('[data-field="title"]', data.title);
+        setText('[data-field="bio"]', data.bio);
+
+        const avatar = document.querySelector('[data-field="avatar"]');
+        if (avatar && data.name) {
+          const initials = data.name
+            .split(" ")
+            .filter(Boolean)
+            .slice(0, 2)
+            .map(part => part[0]?.toUpperCase() ?? "")
+            .join("");
+          avatar.textContent = initials || data.name;
+        }
+
+        setAttr('[data-field="linkedin"]', "href", data.linkedinUrl);
+        setText('[data-field="linkedin"]', data.linkedinLabel || "LinkedIn");
+
+        setAttr('[data-field="company"]', "href", data.companyUrl);
+        setText('[data-field="company"]', data.companyLabel || "Company");
+
+        setAttr('[data-field="add-to-contacts"]', "href", data.vcfPath);
+        setText('[data-field="add-to-contacts"] .btn-label', data.addToContactsLabel || "Add to Contacts");
+        setText('[data-field="add-to-contacts"] .btn-sublabel', data.vcfPath?.replace("./", "") || "contact.vcf");
+
+        setAttr('[data-field="view-card"]', "href", data.vcfPath);
+        setText('[data-field="view-card"] .btn-label', data.viewCardLabel || "View vCard");
+
+        setAttr('[data-field="email"]', "href", `mailto:${data.email}`);
+        setText('[data-field="email"] .btn-sublabel', data.email);
+
+        setAttr('[data-field="phone"]', "href", `tel:${data.phone}`);
+        setText('[data-field="phone"] .btn-sublabel', data.phoneLabel || data.phone);
+      });
+    </script>
+  </body>
 </html>
