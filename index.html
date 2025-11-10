@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ziad Alkalza — Contact</title>
+  <meta name="description" content="Contact page: links and vCard download." />
+  <style>
+    :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; }
+    body { margin: 0; background:#0b1b13; color:#e6f1ee; display:grid; place-items:center; min-height:100dvh; }
+    .card { max-width:560px; width:92%; background:#12251b; padding:28px; border-radius:20px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+    h1 { margin:0 0 6px; font-size:1.8rem; }
+    p.lead { margin:.25rem 0 1rem; opacity:.8 }
+    .links { display:grid; gap:10px; margin:18px 0 26px; }
+    .btn { display:inline-block; text-decoration:none; padding:12px 14px; border-radius:12px; background:#1f3a2c; color:#e6f1ee; border:1px solid #2d4d3b }
+    .btn:hover { filter:brightness(1.12) }
+    .row { display:flex; gap:10px; flex-wrap:wrap; }
+    footer { opacity:.65; font-size:.9rem; margin-top:14px }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Ziad Alkalza</h1>
+    <p class="lead">Founder @ Aradina — Smart Agriculture & IoT</p>
+
+    <div class="links">
+      <a class="btn" href="https://www.linkedin.com/in/YOUR_HANDLE" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://aradina.solutions" target="_blank" rel="noopener">Company Website</a>
+      <a class="btn" href="mailto:you@example.com">Email</a>
+      <a class="btn" href="tel:+201234567890">Call</a>
+    </div>
+
+    <div class="row">
+      <a class="btn" href="./contact.vcf" download>➕ Add to Contacts</a>
+      <a class="btn" href="./contact.vcf">View vCard</a>
+    </div>
+
+    <footer>Save this page or the QR to share quickly.</footer>
+  </main>
+</body>
+</html>

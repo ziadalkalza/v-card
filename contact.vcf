@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Alkalza;Ziad;;;
+FN:Ziad Alkalza
+ORG:Aradina
+TITLE:Founder
+EMAIL;TYPE=INTERNET,PREF:you@example.com
+TEL;TYPE=CELL,VOICE:+201234567890
+URL;TYPE=WORK:https://aradina.solutions
+URL;TYPE=LINKEDIN:https://www.linkedin.com/in/YOUR_HANDLE
+ADR;TYPE=WORK:;;New Cairo;;Cairo;;Egypt
+NOTE:IoT • Smart agriculture
+END:VCARD
